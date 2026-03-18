@@ -1,0 +1,211 @@
+/* This CSS file contains styles for the Task Manager application.
+   It defines the visual appearance of the page, including background gradients,
+   button styles, input fields, task list items, and hover effects.
+   The styles use a combination of custom CSS and Bootstrap classes. */
+
+/* Background container with gradient and centering */
+.bg-container{
+    min-height:100vh;
+    background: linear-gradient(
+        135deg,
+        #fff1e6 0%,
+        #ffe0cc 35%,
+        #ffd6c2 60%,
+        #ffc9b3 100%
+    );
+    text-align: center;
+}
+
+/* Title styling */
+.title{
+    font-size:26px;
+    font-weight:600;
+    color:#333;
+    padding:18px 24px;
+}
+
+/* Input section styling with gap and margin */
+.input-style{
+    gap:12px;            /* space between input & button */
+    margin-bottom:25px;  /* space below */
+}
+
+/* Task input field styling */
+.task-input{
+    width:260px;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    font-size:15px;
+    outline:none;
+    background:white;
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Focus state for input */
+.task-input:focus{
+    border-color:#e46f2b;
+    box-shadow:0 0 0 2px rgba(228,111,43,0.15);
+}
+
+/* Add button styling with gradient and effects */
+.add-btn{
+    background: linear-gradient(135deg,#ff8a4c,#e46f2b);
+    color:white;
+    border:none;
+    padding:12px 18px;
+    font-size:15px;
+    font-weight:600;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(228,111,43,0.3);
+    transition:0.2s;
+}
+
+/* Hover effect for add button */
+.add-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 14px rgba(228,111,43,0.35);
+}
+
+/* Tasks heading styling */
+.tasks-heading{
+    font-weight:700;
+    margin:25px 0 12px;
+    letter-spacing:1px;
+    color:#444;
+}
+
+/* Task list container styling */
+.task-list {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+/* Save button styling with gradient and effects */
+.save-btn{
+  background: linear-gradient(135deg, #4CAF50, #2e7d32);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Hover effect for save button */
+.save-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #43a047, #1b5e20);
+}
+
+/* Click effect for save button */
+.save-btn:active{
+  transform: scale(0.96);
+}
+
+/* Disabled state for save button */
+.save-btn:disabled{
+  background: #9e9e9e;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Clear button styling with gradient and effects */
+.clear-btn{
+  background: linear-gradient(135deg, #ff5252, #d32f2f);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Hover effect for clear button */
+.clear-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #f44336, #b71c1c);
+}
+
+/* Click effect for clear button */
+.clear-btn:active{
+  transform: scale(0.96);
+}
+
+/* Disabled state for clear button */
+.clear-btn:disabled{
+  background: #9e9e9e;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Individual task item styling */
+.task-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#ffffff;
+  padding:12px 14px;
+  margin:10px auto;
+  max-width:520px;
+  border-radius:10px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.08);
+  transition:0.25s ease;
+}
+
+/* Hover effect for task item */
+.task-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 14px rgba(0,0,0,0.15);
+}
+
+/* Task row containing checkbox and text */
+.task-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Checkbox styling */
+.task-checkbox{
+    width:18px;
+    height:18px;
+    cursor:pointer;
+}
+
+/* Task text styling */
+.task-text{
+    font-size:15px;
+    font-weight:500;
+    color:#333;
+}
+
+/* Styling for completed (finished) tasks */
+.finished {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* Delete button container styling */
+.delete-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ff4c4c;
+  transition: background-color 0.25s ease;
+}

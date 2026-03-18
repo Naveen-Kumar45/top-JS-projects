@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6fb;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+/* Caption: application.css — Styles the applications list page: table layout, headings, back/clear buttons, and responsive container. */
+
+.table-container {
+    width: 90%;
+    max-width: 900px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: center;
+    font-size: 13px;
+}
+
+th {
+    background-color: #f97316;   /* orange */
+    color: white;
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #2563eb;
+    text-decoration: none;   /* remove default underline */
+}
+
+.back-link:hover {
+    text-decoration: underline;   /* underline only on hover */
+}
+
+.clear-btn {
+    display: block;
+    margin: 12px auto 0 auto;   /* center horizontally */
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #f97316;   /* orange */
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-btn:hover {
+    background-color: #ea580c;
+}
+
+.no-data {
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    color: #555;
+}

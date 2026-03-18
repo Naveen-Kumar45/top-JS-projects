@@ -1,0 +1,176 @@
+/* This CSS file styles the GitHub Profile Finder web application.
+   It provides a clean, modern design with centered layouts, rounded corners,
+   shadows for depth, hover effects for interactivity, and responsive elements.
+   The styles are organized by component: search container, suggestions dropdown,
+   profile display, and repository grid. Colors and spacing create a GitHub-inspired theme. */
+
+/* Center container at top */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px; /* space from top */
+    width:420px;
+    margin:120px auto;
+    position:relative;
+}
+
+/* Search box wrapper */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* Input styling */
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 50px;
+}
+
+/* Button styling */
+.search-box button {
+    border: none;
+    background: #24292e; /* GitHub dark color */
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+/* Hover effect */
+.search-box button:hover {
+    background: #0366d6;
+    transform: scale(1.05);
+}
+
+
+/* Suggestions dropdown */
+.suggestions-list {
+    position: absolute;
+    top: 100%;          /* directly below input */
+    left: 0;
+    width: 100%;
+    background: white;
+    list-style: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.suggestions-list li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px;
+    cursor:pointer;
+    transition: background 0.2s ease;
+}
+
+.suggestions-list li:hover{
+    background:#f3f4f6;
+}
+
+.suggestions-list li.active{
+    background:#e5e7eb;
+}
+
+.suggestions-list span{
+    flex:1;
+}
+.suggestions-list img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Profile container styling */
+#profile {
+    width: 400px;
+    margin: 60px auto;   /* centers horizontally */
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    display: none; /* hidden by default */
+}
+
+#profile img {
+    border-radius: 50%;
+}
+
+#profileSpinner {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Repositories section styling */
+.repos {
+    width: 800px;
+    margin: 40px auto;
+    display : none;
+}
+
+.repos h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-left: 40px;
+}
+
+/* Grid layout for repository cards */
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Individual repository card styling */
+.repo-card {
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease;
+}
+
+.repo-card:hover {
+    transform: translateY(-4px);
+}
+
+.repo-card a {
+    text-decoration: none;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 16px;
+    color: #00070f;
+}
+
+.repo-card p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* Language indicator styling */
+.lang-text{
+    display:inline-block;
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-right:5px;
+}

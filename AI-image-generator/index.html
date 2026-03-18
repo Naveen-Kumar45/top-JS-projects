@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!-- Main HTML for the AI Image Generator app -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Image Generator</title>
+        <!-- Bootstrap CSS for quick layout and components -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <!-- Bootstrap JS + Popper for any interactive bootstrap elements (not strictly required here) -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+        <!-- App styles and behaviour -->
+        <link rel="stylesheet" href="style.css">
+        <!-- Defer loading of script.js so DOM is ready when it runs -->
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <!-- Overall app container: vertical layout with header, image area and controls -->
+        <div class="app d-flex flex-column justify-content-between">
+
+            <!-- Hero / header section with title and subtitle -->
+            <div class="hero">
+                <h1 class="hero-title">Create Stunning Images with <span>AI</span></h1>
+                <p class="hero-subtitle">Turn your imagination into visuals</p>
+            </div>
+
+            <!-- Image display area: shows spinner while generating, then the produced image or a placeholder -->
+            <div class="image-container d-flex justify-content-center" id="imageContainer">
+
+                <!-- Hidden spinner block shown during image generation -->
+                <div id="Spinner" class="text-center d-none">
+                    <div class="spinner-border" role="status"></div>
+                    <p class="loading-text" id="loadingText"></p>
+                </div>
+
+                <!-- The generated image element (initially empty/hidden) -->
+                <img id="generatedImage" src="" alt="">
+
+                <!-- Placeholder text shown before generation starts -->
+                <p id="placeholder" class="para">Generate an AI image</p>
+            </div>
+
+            <!-- Small success message shown when image is ready -->
+            <p class="fw-bold mt-2 text-center d-none" id="successImg">Your Image is here</p>
+            
+            <!-- Prompt input and generate button -->
+            <div class="prompt-container d-flex">
+                <input type="text" id="prompt" placeholder="Describe the image you want...">
+                <button id="generateBtn">➜</button>
+            </div>
+
+            <!-- Inline validation error message shown when prompt is empty -->
+            <p class="error" id="errorMsg">*Describe the image you want</p>
+        </div>
+    </body>
+</html>
+

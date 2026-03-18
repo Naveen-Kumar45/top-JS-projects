@@ -1,0 +1,134 @@
+
+/* This CSS file styles the Digital Timer application.
+   It defines the layout, colors, gradients, and visual appearance of the timer interface,
+   including the background, clock card, time boxes, and additional details. */
+
+/*Page background*/
+body{
+  height:100vh;
+  margin:0;
+  background: linear-gradient(135deg, #119DA4, #FDE789, #4BC0C7);
+}
+#bgContainer{
+  height:100vh;
+}
+
+/* Card container */
+.clock-card{
+  background:linear-gradient(145deg, #0d7f86, #0a5f65);
+  padding:40px;
+  border-radius:20px;
+  width:350px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* Row holding time */
+.time-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+/* Each time block */
+.time-box{
+  padding:15px 18px;
+  border-radius:12px;
+  color:white;
+  min-width:70px;
+
+  display:flex;             
+  flex-direction:column;     
+  align-items:center;       
+  justify-content:center;
+}
+
+/* Numbers */
+.time-box h1{
+  font-size:32px;
+  margin-bottom:5px;
+}
+
+/* Labels */
+.time-box span{
+  font-size:10px;
+  opacity:0.8;
+  letter-spacing:1px;
+  display:block; 
+}
+
+/* Colon */
+.colon{
+  font-size:28px;
+  color:white;
+  opacity:0.8;
+}
+
+/* Individual box gradients */
+.time-box:nth-child(1){
+  background:linear-gradient(145deg, #4f7cff, #3559d6);
+}
+
+.time-box:nth-child(3){
+  background:linear-gradient(145deg, #1abc9c, #138d75);
+}
+
+.time-box:nth-child(5){
+  background:linear-gradient(145deg, #ff6b6b, #d64545);
+}
+
+/* Date text */
+.date{
+  margin-top:18px;
+  color:#d6c8ff;
+  font-size:14px;
+}
+
+/* Small dot */
+.dot{
+  width:6px;
+  height:6px;
+  background:#b8a3ff;
+  border-radius:50%;
+  margin:14px auto 0;
+  opacity:0.6;
+}
+
+/*format value */
+.format{
+  font-size:15px;
+  margin-bottom:5px;
+  color:white;
+}
+
+/* details row */
+.details-row{
+  gap:20px;
+  margin-top:25px;
+}
+
+
+.details-row-style{
+  background: rgba(255,255,255,0.12);
+  padding:12px 22px;
+  border-radius:12px;
+  text-align:center;
+  min-width:110px;
+  backdrop-filter: blur(6px);
+}
+
+.info-label{
+  display:block;
+  font-size:12px;
+  color:#0f172a;
+}
+
+.info-value{
+  display:block;
+  color:#0f172a;
+  font-weight:600;
+  margin-top:4px;
+}
+
+

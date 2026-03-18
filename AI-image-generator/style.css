@@ -1,0 +1,178 @@
+/* Global reset and base font */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Page background and centering */
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg,#e0eafc,#cfdef3);
+}
+
+/* Hero header styles (title + subtitle) */
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.hero-title{
+    font-size:38px;
+    font-weight:700;
+    color:#1f2937;
+    margin-bottom:8px;
+}
+
+/* Gradient text for the "AI" part of the title */
+.hero-title span{
+    background:linear-gradient(90deg,#6366f1,#9333ea);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero-subtitle{
+    font-size:16px;
+    color:#6b7280;
+}
+
+/* Subtle entrance animation for the header */
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+    animation:fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Main app card/container size */
+.app{
+  width:650px;
+  height:500px;
+  backdrop-filter: blur(10px)
+}
+
+/* Image display area: white card that holds spinner, placeholder and result image */
+.image-container{
+  min-height:350px;
+  background:#ffffff;
+  border-radius:15px;
+  align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  position:relative;   /* allows absolute-positioned loader/spinner inside */
+  overflow:hidden;
+}
+
+/* Generated image styling - hidden until an image is set */
+.image-container img{
+  max-width:100%;
+  height:auto;
+  border-radius:10px;
+  display: none;
+  animation:fadeIn 0.4s ease;
+}
+
+/* Small helper paragraph styles */
+.para{
+  color:#888;
+  font-size:18px;
+}
+
+.loading-text{
+  color:#888;
+  font-size:12px;
+}
+
+/* Generic loader overlay (not currently used directly by JS but kept for styling) */
+.loader{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.6);
+  display:none;
+}
+
+/* CSS spinner used by loader */
+.spinner{
+  width:40px;
+  height:40px;
+  border:4px solid #ddd;
+  border-top:4px solid #333;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+  to{ transform:rotate(360deg); }
+}
+
+/* Prompt input and generate button container */
+.prompt-container{
+  margin-top:20px;
+  align-items:center;
+  background:#f2f2f2;
+  border-radius:40px;
+  padding:8px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.prompt-container input{
+  flex:1;
+  border:none;
+  background:transparent;
+  padding:14px 18px;
+  font-size:16px;
+  outline:none;
+}
+
+.prompt-container button{
+  width:50px;
+  height:50px;
+  border:none;
+  border-radius:50%;
+  background:#272728;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.2s;
+}
+
+.prompt-container button:hover{
+  background:#00050f;
+}
+
+/* Error message styles (hidden by default) */
+.error{
+  color:#e63946;
+  font-size:14px;
+  margin-top:6px;
+  margin-left:10px;
+  display:none;
+}
+
+/* Utility class applied to input when validation fails */
+.input-error{
+  border:1px solid red;
+}
