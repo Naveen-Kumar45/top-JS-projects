@@ -1,0 +1,17 @@
+{
+  "name": "ai-image-generator",
+  "version": "1.0.0",
+  "description": "A simple browser-based image generator that turns text prompts into images using the Hugging Face Inference API (Stable Diffusion).",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@huggingface/inference": "^4.13.30",
+    "dotenv": "^18.0.6"
+  }
+}

@@ -6,6 +6,13 @@
   - Insert the returned image blob into the page
 */
 
+// Import the InferenceClient from Hugging Face's CDN for making inference requests
+import { InferenceClient } from "https://cdn.jsdelivr.net/npm/@huggingface/inference@4.13.30/+esm";
+
+// Placeholder only; real Hugging Face credentials require a server-side backend.
+const client = new InferenceClient("your-hf-token-here");
+
+
 // DOM references
 let input = document.getElementById("prompt");
 let generateBtn = document.getElementById("generateBtn");
@@ -60,64 +67,60 @@ let successImg = document.getElementById("successImg");
   - Sends POST request to the inference endpoint with the prompt
   - Converts returned blob to an object URL and displays it
 */
-async function fetchImage(prompt){
-    image.style.display = "none"; // hide any previous image
+async function fetchImage(prompt) {
+    image.style.display = "none";
     successImg.classList.add("d-none");
     placeholder.style.display = "none";
-    spinner.classList.remove("d-none"); // show spinner
-    loadingText.textContent = "Just a moment, we're getting things ready for you";
+    spinner.classList.remove("d-none");
 
-    // Request options: POST JSON with the prompt. Authorization token used here.
-    let options = {
-        method : "POST",
-        headers : {
-            Authorization : 'Bearer     ',
-            "Content-Type" : 'application/json',
-        },
-        body : JSON.stringify({ inputs : prompt })
-    };
+    loadingText.textContent =
+        "Just a moment, we're getting things ready for you";
 
-    // Rotate small status messages while waiting
-    let loadingMsgs = ["Analyzing your request","Generating your image","Finalizing results"];
+    let loadingMsgs = [
+        "Analyzing your request",
+        "Generating your image",
+        "Finalizing results"
+    ];
+
     let index = 0;
-    let intervalId = setInterval(()=>{
-        if(index === loadingMsgs.length){
+
+    const intervalId = setInterval(() => {
+        if (index >= loadingMsgs.length) {
             clearInterval(intervalId);
+            return;
         }
+
         loadingText.textContent = loadingMsgs[index];
-        index += 1;
-    },3000);
+        index++;
+    }, 3000);
 
     try {
-        // Call the inference API (returns image blob on success)
-        let response = await fetch("https://router.huggingface.co/hf-inference/models/stabilityai/stable-diffusion-xl-base-1.0", options);
-        console.log(response.status);
+        const imageBlob = await client.textToImage({
+            model: "black-forest-labs/FLUX.1-schnell",
+            inputs: prompt
+        });
 
-        if (!response.ok){
-            // If API returns an error, surface text for debugging
-            let errorMsg = await response.text();
-            console.log(errorMsg);
-            throw new Error("API request failed");
-        }
-
-        // Read the binary image data and convert to a URL the img element can use
-        let data = await response.blob();
-        console.log(data);
+        console.log(imageBlob);
 
         clearInterval(intervalId);
-        const imageURL = URL.createObjectURL(data);
+
+        const imageURL = URL.createObjectURL(imageBlob);
+
         image.src = imageURL;
 
-        // Hide spinner and show resulting image + success message
         spinner.classList.add("d-none");
         image.style.display = "block";
         successImg.classList.remove("d-none");
 
-    } catch(error) {
-        // Basic error handling: alert user and hide spinner
-        alert(error.message);
+    } catch (error) {
+
+        clearInterval(intervalId);
+
+        console.error("Hugging Face Error:", error);
+
         spinner.classList.add("d-none");
+
+        alert("Image generation failed: " + error.message);
     }
 }
-
 
